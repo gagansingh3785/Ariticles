@@ -1,0 +1,25 @@
+{% load static %}
+{% for article in articles %}
+<div class="article_encloser">
+	<div class="model">
+		<div class="inner_container">
+			<h2>Are your sure?</h2>
+			<button id="cancel" onclick="cancel(this)">Cancel</button>
+			<a href="{% url 'delete_article' article.id %}"><button id="delete">Delete</button></a>
+		</div>
+	</div>
+	<div class="article">
+		<div class="inner_left"><img class="article_image" src="media/{{article.image}}"></div>
+		<div class="center">
+			<div class="inner_center">
+				<h3 class="article_heading">{{article.title}}</h3>
+				<p class="content">{{article.brief_content}} ....</p>
+			</div>
+			<div class="inner_right">
+				<span class="icon" onclick="article_delete(this)"><i class="fas fa-trash-alt"></i></span>
+				<span class="icon" ><i class="fas fa-edit"></i></span>
+			</div>
+		</div>
+	</div>
+</div>
+{% endfor %}

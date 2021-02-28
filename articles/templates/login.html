@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
+	</head>
+	<body>
+		<div class="container">
+			{% if messages %}
+				<div class="Success">
+					{% for message in messages %}
+						{{message}}
+					{% endfor %}
+				</div>
+			{% endif %}
+			<div class="form_container">
+				<h1 class="heading">Login</h1>
+				<form action="" method="POST">
+					{% csrf_token %}
+					<div class="centering">
+						<label for="username"><i class="fas fa-user"></i></label>
+						<input id="username" name="username" required type="text" placeholder="example@example.com">
+					</div>
+					<div class="centering">
+						<label for="password"><i class="fas fa-key"></i></label>
+						<input id="password" name="password" required type="password" placeholder="Password">
+						<div class="extras"><span class="left">Forgot password?</span><a href="{% url 'register' %}"><span class="right">Not a member yet?</span></a></div>
+					</div>
+					<div class="centering">
+						<button value="submit">SIGN IN</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

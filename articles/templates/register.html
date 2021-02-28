@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Register</title>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="{% static 'css/register.css' %}" type="text/css">
+	</head>
+	<body>
+		<div class="container">
+			{% if messages %}
+				<div class="error">
+					{% for message in messages %}
+						{{message}}
+					{% endfor %}
+				</div>
+			{% endif %}
+			<div class="form_container">
+				<h1 class="heading">Login</h1>
+				<form action="" method="POST">
+					{% csrf_token %}
+					<div class="centering">
+						<label for="username"><i class="fas fa-user"></i></label>
+						<input id="username" required type="text" name="username" placeholder="example@example.com">
+					</div>
+					<div class="centering">
+						<label for="password"><i class="fas fa-key"></i></label>
+						<input id="password" required type="password" name="password" placeholder="Password">
+					</div>
+					<div class="centering">
+						<label for="confirm_password"><i class="fas fa-key"></i></label>
+						<input id="confirm_password" required type="password" name="confirm_password" placeholder="Confirm password">
+						<div class="extras"><a href="{% url 'login' %}"><span class="center">Alrealy have an account?</span></a></div>
+					</div>
+					<div class="centering">
+						<button value="submit">Register</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

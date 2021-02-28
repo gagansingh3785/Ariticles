@@ -1,0 +1,87 @@
+body, html{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	color: rgb(150, 150, 150);
+	font-family: verdana;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(150, 150, 150);
+}
+.form_container{
+	width: 400px;
+	padding: 30px 10px 30px 10px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.heading{
+	text-align: center;
+
+}
+input{
+	position: relative;
+	top: -7px;
+	left: -12px;
+	height: 34px;
+	width: 250px;
+	background-color: white;
+	border: 2px solid rgb(150, 150, 150);
+	border-left: none;
+}
+form{
+	width: 100%;
+}
+.centering{
+	height: 40px;
+	font-size: 30px;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	line-height: 40px;
+}
+label{
+	border: 2px solid rgb(150, 150, 150);
+	border-right: none;
+	line-height: 30px;
+	padding-right: 10px;
+	padding-left: 5px;
+}
+button{
+	background-color: rgb(150, 150, 150);
+	padding: 10px 40px 10px 40px;
+	border: none;
+	color: white;
+	border-radius: 4px;
+	font-weight: bolder;
+}
+.left{
+	font-size: 13px;
+	float: left;
+	margin-left: 45px;
+}
+.right{
+	margin-right: 50px;
+	float: right;
+	font-size: 13px;
+}
+.right:hover, .left:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.Success{
+	width: 400px;
+	padding: 10px 10px 10px 10px;
+	background-color: black;
+	text-align: center;
+	margin-bottom: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+a, a:hover{
+	color: grey;
+	text-decoration: none;
+}

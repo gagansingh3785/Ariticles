@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Write</title>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/write.css' %}" type="text/css">
+	</head>
+	<body>
+		<div class="Outer_navbar_wrapper">
+			<div class="Navbar_wrapper">
+				<div class="left">
+					<a href="{% url 'home' %}"><div class="nav_item" id="logo">FATMUG</div></a>
+					<div class="nav_item" id="greeting">Greetings! {{request.user}}</div>
+				</div>
+				<div class="right">
+					<a href="{% url 'write' %}"><div style="background-color: grey; color: white; border: 1px solid grey" class="nav_item left_items">Write</div></a>
+					<a href="{% url 'your_articles' %}"><div class="nav_item left_items">Your Articles</div></a>
+					<a href="{% url 'logout' %}"><div class="nav_item left_items">Logout</div></a>
+					<div class="nav_item left_items" id="special" onclick="change()"><i class="fas fa-bars"></i></div>
+				</div>
+			</div>	
+			<div class="hidden">
+				<a href="{% url 'write' %}"><div class="hidden_items">Write</div></a>
+				<a href="{% url 'your_articles' %}"><div class="hidden_items">Your Articles</div></a>
+				<a href="{% url 'logout' %}"><div class="hidden_items">Logout</div></a>
+			</div>
+		</div>
+		<script src="{% static 'js/navbar.js' %}"></script>
+		<div class="form_container">
+			<form action="" method="POST">
+				{% csrf_token %}
+				<label for="Topic">Enter the topic</label>
+				<br>
+				<input id="Topic" class="inputs" name="title" type="texts">	
+				<br>
+				<br>
+				<label for="Content">Content</label>
+				<br>
+				<textarea id="Content" class="inputs" name="content" type="texts"></textarea>	
+				<br>
+				<br>
+				<label for="readtime">Estimated read time</label>
+				<br>
+				<input type="number" id="readtime" name="readtime" min="1" max="100">
+				<br>
+				<br>
+				<label for="image">Upload image</label>
+				<p>Accepted image types are: jpg, png</p>
+				<input id="image" type="file" name="image">
+				<div id="special"></div>
+				<br>
+				<div class="button"><input id="Submit" type="Submit"></div>	
+			</form>
+		</div>
+		<script src="{% static 'js/write.js' %}"></script>
+	</body>
+</html>

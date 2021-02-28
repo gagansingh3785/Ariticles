@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Navbar</title>
+		<link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
+	</head>
+	<body>
+		<div class="Outer_navbar_wrapper">
+			<div class="Navbar_wrapper">
+				<div class="left">
+					<div class="nav_item" id="logo">FATMUG</div>
+					<div class="nav_item" id="greeting">Greetings! Abhinav</div>
+				</div>
+				<div class="right">
+					<div class="nav_item left_items">Write</div>
+					<div class="nav_item left_items">Your Articles</div>
+					<div class="nav_item left_items">Logout</div>
+					<div class="nav_item left_items" id="special" onclick="change()"><i class="fas fa-bars"></i></div>
+				</div>
+			</div>	
+			<div class="hidden">
+				<div class="hidden_items">Write</div>
+				<div class="hidden_items">Your Articles</div>
+				<div class="hidden_items">Logout</div>
+			</div>
+		</div>
+		<script src="{% static 'js/navbar.js' %}"></script>
+	</body>
+</html>

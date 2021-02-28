@@ -1,0 +1,96 @@
+.Outer_wrapper{
+	font-family: verdana;
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+}
+.article{
+	margin-bottom: 50px;
+	padding-bottom: 40px;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.description{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.top{
+	margin-bottom: 40px;
+	padding: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	border-radius: 10px;
+}
+.brief_articles{
+	margin-left: 30px;
+}
+.top_articles{
+	margin-right: 30px;	
+}
+.article_image{
+	border-radius: 20px 20px 0px 0px ;
+	width: 100%;
+}
+.paragraph{
+	color: grey;
+}
+.heading{
+	color: black;
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+}
+.top{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.info{
+	width: 60%;
+}
+.top_image{
+	width: 40%;
+}
+.top_image img{
+	width: 100%;
+}
+
+.Author{
+	font-size: 13px;
+	font-weight: bold;
+}
+.Topic{
+	margin-top: 5px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.read_more{
+	margin-top: 10px;
+	font-size: 13px;
+}
+.light{
+	color: grey;
+	font-weight: normal;
+}
+
+.full_article:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+a, a:hover{
+	text-decoration: none;
+	color: grey;
+}
+
+.pages{
+	text-align: center;
+	padding-bottom: 30px;
+}
+.inner_number{
+	margin-left: 5px;
+	background-color: grey;
+	color: white;
+	cursor: pointer;
+	padding: 10px 15px 10px 15px;
+	border-radius: 4px;
+}
+

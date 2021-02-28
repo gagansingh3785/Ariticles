@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+	</head>
+	<body>
+		<div class="Outer_navbar_wrapper">
+			<div class="Navbar_wrapper">
+				<div class="left">
+					<a href="{% url 'home' %}"><div class="nav_item" id="logo">FATMUG</div></a>
+					<div class="nav_item" id="greeting">Greetings! {{request.user}}</div>
+				</div>
+				<div class="right">
+					<a href="{% url 'write' %}"><div class="nav_item left_items">Write</div></a>
+					<a href="{% url 'your_articles' %}"><div class="nav_item left_items">Your Articles</div></a>
+					<a href="{% url 'logout' %}"><div class="nav_item left_items">Logout</div></a>
+					<div class="nav_item left_items" id="special" onclick="change()"><i class="fas fa-bars"></i></div>
+				</div>
+			</div>	
+			<div class="hidden">
+				<a href="{% url 'write' %}"><div class="hidden_items">Write</div></a>
+				<a href="{% url 'your_articles' %}"><div class="hidden_items">Your Articles</div></a>
+				<a href="{% url 'logout' %}"><div class="hidden_items">Logout</div></a>
+			</div>
+		</div>
+		<script src="{% static 'js/navbar.js' %}"></script>	
+		<div class="Outer_wrapper">
+			<div class="brief_articles">
+				<h2 class="heading">Articles</h2>
+				<div class="inner_articles">
+					
+				</div>
+			</div>
+			<div class="top_articles">
+				<h2 class="heading">Top Articles</h2>
+				<div class="top">
+					<div class="info">
+						<div class="Author">
+							Michaell Krasnov <span class="light"> in </span> Better Programming
+						</div>
+						<div class="Topic">
+							10 React Interview Questions for 2020
+						</div>
+						<div class="read_more"><span class="data">6 July</span> <span class="full_article">Read more</span> <i class="fas fa-star"></i></div>
+					</div>
+					<div class="top_image">
+						<img src="{% static 'images/images.jpg' %}">
+					</div>
+				</div>
+				<div class="top">
+					<div class="info">
+						<div class="Author">
+							Michaell Krasnov <span class="light"> in </span> Better Programming
+						</div>
+						<div class="Topic">
+							10 React Interview Questions for 2020
+						</div>
+						<div class="read_more"><span class="data">6 July</span> <span class="full_article">Read more</span> <i class="fas fa-star"></i></div>
+					</div>
+					<div class="top_image">
+						<img src="{% static 'images/images.jpg' %}">
+					</div>
+				</div>
+				<div class="top">
+					<div class="info">
+						<div class="Author">
+							Michaell Krasnov <span class="light"> in </span> Better Programming
+						</div>
+						<div class="Topic">
+							10 React Interview Questions for 2020
+						</div>
+						<div class="read_more"><span class="data">6 July</span> <span class="full_article">Read more</span> <i class="fas fa-star"></i></div>
+					</div>
+					<div class="top_image">
+						<img src="{% static 'images/images.jpg' %}">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pages">
+			<span class="page_numbering">
+				{% for i in count %}
+					<span class="inner_number" onclick="page_change(this)">{{forloop.counter}}</span>
+				{% endfor %}
+			</span>
+		</div>
+		<script src="{% static 'js/home.js' %}"></script>
+	</body>
+</html>

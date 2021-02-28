@@ -1,0 +1,16 @@
+{% load static %}
+{% for article in articles %}
+	<div class="article">
+		<div class="image">
+			<img class="article_image" src="/media/{{article.image}}">
+		</div>
+		<div class="description">
+			<h5 class="name">{{article.author}} <span class="light"> in </span> Wholistique</h5>
+			<h2 class="title">{{article.title}}</h2>
+			<p class="paragraph">
+				{{article.brief_content}}...
+			</p>
+			<div class="read_more"><span class="data">{{article.date}}</span> <a href="{% url 'view_article' article.pk %}"><span class="full_article">Read more</span></a> <i class="fas fa-star"></i></div>
+		</div>
+	</div>
+{% endfor %}
