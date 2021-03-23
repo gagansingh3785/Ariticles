@@ -19,7 +19,7 @@ label{
 	font-size: 20px;
 	border-radius: 5px;
 }
-input{
+.form_container input{
 	margin-top: 30px;
 }
 #Topic{
