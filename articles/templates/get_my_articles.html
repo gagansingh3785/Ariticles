@@ -17,7 +17,7 @@
 			</div>
 			<div class="inner_right">
 				<span class="icon" onclick="article_delete(this)"><i class="fas fa-trash-alt"></i></span>
-				<span class="icon" ><i class="fas fa-edit"></i></span>
+				<a href="{% url 'edit' article.pk %}"><span class="icon" ><i class="fas fa-edit"></i></span></a>
 			</div>
 		</div>
 	</div>

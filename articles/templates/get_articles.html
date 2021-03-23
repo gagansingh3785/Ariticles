@@ -1,16 +1,29 @@
 {% load static %}
-{% for article in articles %}
-	<div class="article">
-		<div class="image">
-			<img class="article_image" src="/media/{{article.image}}">
+{% if articles %}
+	{% for article in articles %}
+		<div class="article">
+			<div class="image">
+				<img class="article_image" src="/media/{{article.image}}">
+			</div>
+			<div class="description">
+				<h5 class="name">{{article.author}} <span class="light"> in </span> Wholistique</h5>
+				<h2 class="title">{{article.title}}</h2>
+				<p class="paragraph">
+					{{article.brief_content}}...
+				</p>
+				<div class="read_more">
+					<span class="data">{{article.date}}</span> 
+					<a href="{% url 'view_article' article.pk %}"><span class="full_article">Read more</span></a>
+					{% if article in starred %}
+						<span class="star" data-choice="1" onclick="starring(this, '{{article.pk}}')"><i class='fas fa-star'></i></span>
+					{% else %}
+						<span class="star" data-choice="2" onclick="starring(this, '{{article.pk}}')"><i class='far fa-star'></i></span>
+					{% endif %}
+				</div>
+			</div>
+			<div class="likes_comments_bar"><span class="bar_elements"><i class="fab fa-readme"></i> Reads {{article.no_of_reads}}</span><span class="bar_elements"><i class="far fa-thumbs-up"></i> Likes {{article.likes}}</span></div>
 		</div>
-		<div class="description">
-			<h5 class="name">{{article.author}} <span class="light"> in </span> Wholistique</h5>
-			<h2 class="title">{{article.title}}</h2>
-			<p class="paragraph">
-				{{article.brief_content}}...
-			</p>
-			<div class="read_more"><span class="data">{{article.date}}</span> <a href="{% url 'view_article' article.pk %}"><span class="full_article">Read more</span></a> <i class="fas fa-star"></i></div>
-		</div>
-	</div>
-{% endfor %}
+	{% endfor %}
+	{% else %}
+		<div class="massage">You have not submitted any articles</div>
+{% endif %}

@@ -88,8 +88,11 @@
 	color: grey;
 }
 .icon{
-	font-size: 25px;
-	color: grey;
+	font-size: 20px;
+	color: white;
+	padding: 5px 10px 5px 10px;
+	background-color: grey;
+	border-radius: 4px;
 	margin-left: 10px;
 }
 .icon:hover{
@@ -122,19 +125,6 @@ a, a:hover{
 		width: 50%;
 	}
 }
-.delete_message{
-	height: 35px;
-	width: 35px;
-	border-radius: 35px;
-	line-height: 35px;
-	text-align: center;
-	background-color: rgb(50, 50, 50);
-	cursor: pointer;
-}
-.delete_message:hover{
-	background-color: rgb(100, 100, 100);
-}
-
 .message{
 	width: 40%;
 	display: flex;
@@ -149,6 +139,20 @@ a, a:hover{
 	color: white;
 	box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
+.delete_message{
+	height: 35px;
+	width: 35px;
+	color: white;
+	border-radius: 35px;
+	line-height: 35px;
+	text-align: center;
+	background-color: rgb(50, 50, 50);
+	cursor: pointer;
+}
+.delete_message:hover{
+	background-color: rgb(100, 100, 100);
+}
+
 #bottom_messages{
 	position: fixed;
 	bottom: 30px;

@@ -37,3 +37,7 @@ function cancel(ele){
 	ele = ele.parentElement.parentElement;
 	ele.style.display = "none";
 }
+
+function delete_message(ele){
+	ele.parentElement.remove();
+}

@@ -1,0 +1,21 @@
+{% load static %}
+{% if articles %}
+	{% for article in articles %}
+		<div class="article_encloser">
+			<div class="article">
+				<div class="inner_left"><img class="article_image" src="media/{{article.image}}"></div>
+				<div class="center">
+					<div class="inner_center">
+						<h3 class="article_heading">{{article.title}}</h3>
+						<p class="content">{{article.brief_content}} ....</p>
+					</div>
+					<div class="inner_right">
+						<span class="icon" onclick="unmark(this, '{{article.pk}}')">Unmark</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% else %}
+	<div class="massage">You have not bookmarked any articles</div>
+{% endif %}

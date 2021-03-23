@@ -15,6 +15,7 @@
 					<div class="nav_item" id="greeting">Greetings! {{request.user}}</div>
 				</div>
 				<div class="right">
+					<a href="{% url 'bookmarks' %}"><div class="nav_item left_items">Bookmarks</div></a>
 					<a href="{% url 'write' %}"><div style="background-color: grey; color: white; border: 1px solid grey" class="nav_item left_items">Write</div></a>
 					<a href="{% url 'your_articles' %}"><div class="nav_item left_items">Your Articles</div></a>
 					<a href="{% url 'logout' %}"><div class="nav_item left_items">Logout</div></a>
@@ -22,6 +23,7 @@
 				</div>
 			</div>	
 			<div class="hidden">
+				<a href="{% url 'bookmarks' %}"><div class="hidden_items">Bookmarks</div></a>
 				<a href="{% url 'write' %}"><div class="hidden_items">Write</div></a>
 				<a href="{% url 'your_articles' %}"><div class="hidden_items">Your Articles</div></a>
 				<a href="{% url 'logout' %}"><div class="hidden_items">Logout</div></a>

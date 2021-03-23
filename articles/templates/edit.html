@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Articles</title>
+		<title>Write</title>
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 		<link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css">
-		<link rel="stylesheet" href="{% static 'css/your_articles.css' %}" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/edit.css' %}" type="text/css">
 	</head>
 	<body>
 		<div class="Outer_navbar_wrapper">
@@ -17,7 +17,7 @@
 				<div class="right">
 					<a href="{% url 'bookmarks' %}"><div class="nav_item left_items">Bookmarks</div></a>
 					<a href="{% url 'write' %}"><div class="nav_item left_items">Write</div></a>
-					<a href="{% url 'your_articles' %}"><div class="nav_item left_items" style="background-color: grey; color: white; border: 1px solid grey">Your Articles</div></a>
+					<a href="{% url 'your_articles' %}"><div class="nav_item left_items">Your Articles</div></a>
 					<a href="{% url 'logout' %}"><div class="nav_item left_items">Logout</div></a>
 					<div class="nav_item left_items" id="special" onclick="change()"><i class="fas fa-bars"></i></div>
 				</div>
@@ -30,33 +30,34 @@
 			</div>
 		</div>
 		<script src="{% static 'js/navbar.js' %}"></script>
-		<div id="bottom_messages">
-			{% if messages %}
-				{% for message in messages %}
-					<div class="bottom_message"><span class="text_message">{{message}}</span><span class="delete_message" onclick="delete_message(this)">X</span></div>
-				{% endfor %}
-			{% endif %}
+		<div class="form_container">
+			<form action="" method="POST">
+				{% csrf_token %}
+				<label for="Topic">Enter the topic</label>
+				<br>
+				<input id="Topic" class="inputs" value="{{article.title}}" name="title" type="texts">	
+				<br>
+				<br>
+				<label for="Content">Content</label>
+				<br>
+				<textarea id="Content" class="inputs" name="content" type="texts">{{article.content}}</textarea>	
+				<br>
+				<br>
+				<label for="readtime">Estimated read time</label>
+				<br>
+				<input type="number" value="{{article.read_time}}" id="read_time" name="readtime" min="1" max="100">
+				<br>
+				<br>
+				<label for="image">Upload image</label>
+				<div class="thumbnail_image"><img src="/media/{{article.image}}" height="150" width="300"></div>
+				<p>{{article.image}}</p>
+				<p>Accepted image types are: jpg, png</p>
+				<input id="image" type="file" name="image">
+				<div id="special"></div>
+				<br>
+				<div class="button"><input id="Submit" type="Submit"></div>	
+			</form>
 		</div>
-		<div id="messages">
-			{% if messages %}
-				{% for message in messages %}
-					<div class="message">{{message}}<span class="delete_message" onclick="delete_message(this)">X</span></div>
-				{% endfor %}
-			{% endif %}
-		</div>
-		<div class="container">
-			<h2 class="heading">YOUR SUBMITTED ARTICLES</h2>
-			<div class="outer_articles">
-				
-			</div>
-		</div>
-		<div class="pages">
-			<span class="page_numbering">
-				{% for i in count %}
-					<span class="inner_number" onclick="page_change(this)">{{forloop.counter}}</span>
-				{% endfor %}
-			</span>
-		</div>
-		<script src="{% static 'js/your_articles.js' %}"></script>	
+		<script src="{% static 'js/write.js' %}"></script>
 	</body>
 </html>

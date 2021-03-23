@@ -1,7 +1,9 @@
 var request = new XMLHttpRequest();
+if (String(window.performance.getEntriesByType("navigation")[0].type) === "back_forward") {
+    window.location.reload();
+}
 request.onreadystatechange = function(){
 	if(this.readyState == 4 && this.status == 200){
-		console.log(this.responseText);
 		document.getElementsByClassName("inner_articles")[0].innerHTML = this.responseText;
 	}
 };
@@ -22,7 +24,6 @@ function page_change(ele){
 			document.getElementsByClassName("inner_articles")[0].innerHTML = this.responseText;
 		}
 	}
-	console.log(ele.innerHTML);
 	http_request.open("GET", "get_articles/" + ele.innerHTML, true);
 	http_request.send();
 	elements = ele.parentElement.getElementsByClassName("inner_number");
@@ -65,3 +66,58 @@ window.addEventListener('resize', () =>{
 		top_articles.style.width = "40%";
 	}
 });
+
+function starring(ele, pk){	
+	var request = new XMLHttpRequest();
+	if(ele.dataset.choice == "2"){
+		request.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				ele.innerHTML = "<i class='fas fa-star'></i>";
+				var message_container = document.getElementById("messages");
+				while(message_container.firstChild){
+					 message_container.removeChild(message_container.firstChild);
+				}
+				var message = document.createElement("div");
+				message.classList.add("message");
+				message.innerHTML = "" + this.responseText + "<span class='delete_message' onclick='delete_message(this)''>X</span>";
+				message_container.appendChild(message);
+				var bottom_container = document.getElementById('bottom_messages');
+				var bottom_message = document.createElement("div");
+				bottom_message.innerHTML = "" + this.responseText + "<span class='delete_message' onclick='delete_message(this)''>X</span>";
+				bottom_message.classList.add("bottom_message");
+				bottom_container.appendChild(bottom_message);
+				ele.dataset.choice = "1";
+			}
+		}
+		request.open("GET", "starring/" + pk, true);
+		request.send();
+	}
+	else if(ele.dataset.choice == "1"){
+		request.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				console.log(this.responseText);
+				var message_container = document.getElementById("messages");
+				while(message_container.firstChild){
+					 message_container.removeChild(message_container.firstChild);
+				}
+				var message = document.createElement("div");
+				message.classList.add("message");
+				message_container.appendChild(message);
+				var bottom_container = document.getElementById('bottom_messages');
+				var bottom_message = document.createElement("div");
+				bottom_message.classList.add("bottom_message");
+				bottom_container.appendChild(bottom_message);
+				bottom_message.innerHTML = message.innerHTML = "" + this.responseText + "<span class='delete_message' onclick='delete_message(this)''>X</span>";
+				message.innerHTML = "" + this.responseText + "<span class='delete_message' onclick='delete_message(this)''>X</span>";
+				ele.dataset.choice = "2";
+				ele.innerHTML = "<i class='far fa-star'></i>";
+			}
+		}
+		request.open("GET", "unstarring/" + pk, true);
+		request.send();
+	}
+}
+
+function delete_message(ele){
+	ele.parentElement.remove();
+}

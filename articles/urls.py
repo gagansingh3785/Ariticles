@@ -13,5 +13,11 @@ urlpatterns = [
     path('get_articles/<int:number>', views.get_articles, name="get_articles"),
     path('get_my_articles/<int:number>', views.get_my_articles, name="get_my_articles"),
     path('delete_article/<int:number>', views.delete_article, name="delete_article"),
+    path('done_reading/<int:number>', views.done_reading, name="done_reading"),
+    path('starring/<int:number>', views.starring, name="starring"),
+    path('unstarring/<int:number>', views.unstarring, name="unstarring"),
+    path('bookmarks', views.bookmarks, name="bookmarks"),
+    path('get_bookmarks/<int:number>', views.get_bookmarks, name="get_bookmarks"),
+    path('edit/<int:number>', views.edit_article, name='edit'),
 ]
 

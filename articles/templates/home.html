@@ -11,10 +11,11 @@
 		<div class="Outer_navbar_wrapper">
 			<div class="Navbar_wrapper">
 				<div class="left">
-					<a href="{% url 'home' %}"><div class="nav_item" id="logo">FATMUG</div></a>
+					<a href="{% url 'home' %}"><div class="nav_item" id="logo">PROJECT</div></a>
 					<div class="nav_item" id="greeting">Greetings! {{request.user}}</div>
 				</div>
 				<div class="right">
+					<a href="{% url 'bookmarks' %}"><div class="nav_item left_items">Bookmarks</div></a>
 					<a href="{% url 'write' %}"><div class="nav_item left_items">Write</div></a>
 					<a href="{% url 'your_articles' %}"><div class="nav_item left_items">Your Articles</div></a>
 					<a href="{% url 'logout' %}"><div class="nav_item left_items">Logout</div></a>
@@ -22,12 +23,27 @@
 				</div>
 			</div>	
 			<div class="hidden">
+				<a href="{% url 'bookmarks' %}"><div class="hidden_items">Bookmarks</div></a>
 				<a href="{% url 'write' %}"><div class="hidden_items">Write</div></a>
 				<a href="{% url 'your_articles' %}"><div class="hidden_items">Your Articles</div></a>
 				<a href="{% url 'logout' %}"><div class="hidden_items">Logout</div></a>
 			</div>
 		</div>
 		<script src="{% static 'js/navbar.js' %}"></script>	
+		<div id="bottom_messages">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="bottom_message"><span class="text_message">{{message}}</span><span class="delete_message" onclick="delete_message(this)">X</span></div>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div id="messages">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="message"><span class="text_message">{{message}}</span><span class="delete_message" onclick="delete_message(this)">X</span></div>
+				{% endfor %}
+			{% endif %}
+		</div>
 		<div class="Outer_wrapper">
 			<div class="brief_articles">
 				<h2 class="heading">Articles</h2>

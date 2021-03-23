@@ -32,3 +32,25 @@ a, a:hover{
 	color: black;
 	font-weight: bold;
 }
+.reading{
+	display: inline;
+	position: fixed;
+	bottom: 20px;
+	right: 40px;
+}
+.hover_element{
+	display: none;
+	margin-right: 5px;
+	padding: 10px 20px 10px 20px;
+	background-color: grey;
+	border-radius: 3px;
+	color: white;
+}
+.reading_button{
+	cursor: pointer;
+	padding: 10px 20px 10px 20px;
+	box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+	background-color: grey;
+	border-radius: 3px;
+	color: white;
+}
