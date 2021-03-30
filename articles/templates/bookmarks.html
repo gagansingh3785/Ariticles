@@ -22,10 +22,13 @@
 					<div class="nav_item left_items" id="special" onclick="change()"><i class="fas fa-bars"></i></div>
 				</div>
 			</div>	
-			<div class="search">
-				<input type="text" placeholder="Search articles" class="search-input"/>
-				<span class="search-icon"><i class="fas fa-search"></i></span>
-			</div>
+			<form method="GET" action="{% url 'searchquery' %}">
+				<div class="search">
+					<input type="text" placeholder="Search articles by keywords" class="search-input"/>
+					<input type="text" placeholder="Search articles by author" class="search-input"/>
+					<button value="submit" class="search-icon"><i class="fas fa-search"></i></button>
+				</div>
+			</form>
 			<div class="hidden">
 				<a href="{% url 'bookmarks' %}"><div class="hidden_items">Bookmarks</div></a>
 				<a href="{% url 'write' %}"><div class="hidden_items">Write</div></a>

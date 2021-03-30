@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from . import models
+from collections import defaultdict
 from django import template
 
 
@@ -219,4 +220,46 @@ def edit_article(request, number):
 		return HttpResponseRedirect(reverse('home'))
 
 	
+@login_required(login_url="login")
+def search_query(request):
+	tags = request.GET['tags']
+	print(tags)
+	tags_list = []
+	word = ""
+	for i in range(len(tags)):
+		if tags[i].isalpha():
+			word += tags[i]
+		else:
+			tags_list.append(word)
+			word = ""
 
+	tags_list.append(word)
+
+	print(tags_list)
+	author = User.objects.get(username=request.GET['author'])
+	author_articles = models.articles.objects.filter(author=author)
+	print(author_articles)
+	articles_dict = {}
+	for article in author_articles:
+		articles_dict[article] = 0
+		print(article.tags.all())
+		for tag in tags_list:
+			for article_tag in article.tags.all():
+				if tag == article_tag.name.lower():
+					articles_dict[article] += 1
+					print("here")
+					break
+
+	final_response = []
+	for key in articles_dict.keys():
+		final_response.append([articles_dict[key], key])
+	final_response.sort(key = lambda x: x[0], reverse=True)
+	print(final_response)
+
+	another_list = []
+
+	for item in final_response:
+		another_list.append(item[1])
+
+
+	return render(request, 'searchresults.html', {"articles": another_list})

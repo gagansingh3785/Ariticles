@@ -2,6 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class tags(models.Model):
+	name = models.CharField(max_length=50)
+
+	def __str__(self):
+		return self.name
+
 class articles(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	date = models.DateField(auto_now=True)
@@ -12,6 +18,7 @@ class articles(models.Model):
 	likes = models.PositiveIntegerField(default=0)
 	image = models.ImageField(default="images.jpg", blank=True)
 	read_time = models.IntegerField()
+	tags = models.ManyToManyField(tags)
 	
 	def __str__(self):
 		return self.title + str(self.pk)
@@ -30,3 +37,5 @@ class starred_info(models.Model):
 
 	def __str__(self):
 		return self.article.title + str(self.article.pk) + "by" + self.user.username
+
+

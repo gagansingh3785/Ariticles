@@ -108,6 +108,7 @@ body, html{
 	align-items: center;
 	height: 50px;
 	width: 100%;
+	justify-content: space-between;
 	border-top: 1px solid rgb(200, 200, 200);
 }
 .search-input{
@@ -115,16 +116,19 @@ body, html{
 	font-size: 20px;
 	padding: 0px;
 	height: 100%;
-	width: 90%;
+	width: 45%;
 	border: none;
+	border-right: 1px solid grey;
 }
 .search-icon{
 	font-size: 25px;
+	border: none;
 	height: 100%;
 	line-height: 50px;
 	text-align: center;
 	width: 10%;
 	cursor: pointer;
+	background-color: white;
 }
 .search-icon:hover{
 	background-color: rgb(200, 200, 200);

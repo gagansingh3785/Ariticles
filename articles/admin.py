@@ -4,3 +4,4 @@ from . import models
 admin.site.register(models.articles)
 admin.site.register(models.read_info)
 admin.site.register(models.starred_info)
+admin.site.register(models.tags)

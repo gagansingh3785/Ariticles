@@ -19,5 +19,6 @@ urlpatterns = [
     path('bookmarks', views.bookmarks, name="bookmarks"),
     path('get_bookmarks/<int:number>', views.get_bookmarks, name="get_bookmarks"),
     path('edit/<int:number>', views.edit_article, name='edit'),
+    path('searchquery', views.search_query, name='searchquery'),
 ]
 

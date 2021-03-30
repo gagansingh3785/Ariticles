@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		{% for article in articles %}
+			{{article.title}}
+			<br>
+			{{article.author}}
+			<br>
+			{{article.content}}
+		{% endfor %}
+	</body>
+</html>
